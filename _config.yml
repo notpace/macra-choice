@@ -11,7 +11,7 @@ email: info@macrachoice.org
 description: > # this means to ignore newlines until "baseurl:"
   A website that introduces healthcare providers to the factors that influence
   decisions they need to make as part of MACRA
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/macra-choice" # the subpath of your site, e.g. /blog
 url: "http://macrachoice.org" # the base hostname & protocol for your site
 
 # Build settings
