@@ -20,6 +20,38 @@
   }
 }
 
+.mc-button {
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33333;
+  border: none;
+  color: white;
+  width: 350px;
+  margin: 2px;
+  display: inline-block;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s ease-in-out all;
+  }
+  &:visited {
+    color: white;
+  }
+}
+.mc-button-default {
+  background-color: $brand-color;
+  &:hover {
+    background-color: lighten($brand-color, 15%);
+  }
+}
+.mc-button-warning {
+  background-color: $strong-color-1;
+  &:hover {
+    background-color: lighten($strong-color-1, 15%);
+  }
+}
+
 .factor {
   padding: 5% 2em;
 }
