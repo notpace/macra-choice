@@ -1,0 +1,42 @@
+.explainer {
+  padding: 5% 2em;
+  overflow: hidden;
+}
+
+.explainer-strong-1 {
+  color: white;
+  background-color: $strong-color-1;
+  & a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+.explainer-strong-2 {
+  background-color: $strong-color-2;
+  color: $text-color;
+  & a {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+.factor {
+  padding: 5% 2em;
+}
+.factor-label {
+  font-size: 1.4em;
+}
+.factor-input {
+  font-size: 1.8em;
+  padding: 1em;
+}
+.factor-dark {
+  background-color: $brand-color;
+  color: white;
+  & a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+.factor-light {
+}

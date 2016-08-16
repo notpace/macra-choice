@@ -1,0 +1,131 @@
+---
+layout: default
+---
+
+<script>
+  // Calculate Model Outcome
+  $( document ).ready(function() {
+    function calculateOutcome() {
+      var outcome = '';
+      MIPSoutcome = parseInt($('#factor1')[0].value) * parseInt($('#factor2')[0].value);
+      $('#mips-outcome')[0].value = MIPSoutcome;
+      APMoutcome = parseInt($('#factor1')[0].value) * parseInt($('#factor2')[0].value) + 50;
+      $('#apm-outcome')[0].value = APMoutcome;
+    };
+    $('.factor-input').on('change, input', calculateOutcome);
+  });
+</script>
+
+<div class="home">
+  <section class='wrapper'>
+    <article class='purpose'>
+      <p style='font-size:10em;' class='text-center'>{% icon fa-map-signs %}</p>
+      <h1 style='font-size:4em;' class='text-center'>MIPS or APM?</h1>
+      <p style='font-size:large;'>With the advent of MACRA (The Medicaid and CHIP Reauthorization Act of 2015), providers now have a very important choice.  The 'doc fix' is dead, but MACRA calls for providers to choose between MIPS and APM.</p>
+    </article>
+
+    <div class='explainer'>
+      <article class='col-md-6'>
+        <h2>Merit-Based Incentive Payment System (MIPS)</h2>
+        <p>The MIPS is a new program that combines parts of the <a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/PQRS/index.html?redirect=/pqri/">Physician Quality Reporting System</a> (PQRS), the <a href="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeedbackProgram/ValueBasedPaymentModifier.html">Value Modifier</a> (VM or <a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/VMP/Value-Modifier-VM-or-PVBM.html">Value-based Payment Modifier</a>), and the <a href="https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/index.html?redirect=/ehrincentiveprogramsincentiveprogram">Medicare Electronic Health Record</a> (EHR) incentive program into one single program in which <a href="/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/MACRA-MIPS-and-APMs/MIPS-EPs-Slide.pptx">Eligible Professionals (EPs)</a> will be measured on:</p>
+        <ul style='list-style:none;font-size:large;margin-left:1%;'>
+          <li>{% icon fa-check fa-fw %} Quality</li>
+          <li>{% icon fa-medkit fa-fw %} Resource use</li>
+          <li>{% icon fa-line-chart fa-fw %} Clinical practice improvement</li>
+          <li>{% icon fa-laptop fa-fw %} Meaningful use of certified EHR technology</li>
+        </ul>
+      </article>
+
+      <article class='col-md-6'>
+        <h2>Alternative Payment Model (APM)</h2>
+        <p>APMs give us new ways to pay health care providers for the care they give Medicare beneficiaries. For example:</p>
+        <ul>
+          <li>From 2019-2024, pay some participating health care providers a lump-sum&nbsp;incentive payment.</li>
+          <li>Increased transparency of physician-focused payment models.</li>
+          <li>Starting in 2026, offers some participating health care providers higher annual payments.</li>
+        </ul>
+        <p><a href="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/ACO/index.html?redirect=/aco">Accountable Care Organizations</a> (ACOs), Patient Centered Medical Homes, and <a href="https://www.cms.gov/Newsroom/MediaReleaseDatabase/Fact-sheets/2015-Fact-sheets-items/2015-08-13-2.html">bundled payment models</a> are some examples of APMs.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- <article class='explainer explainer-strong-1 col-md-12 text-center'>
+    <h1 style='font-size:3em;'>{% icon fa-clock-o %} 2015 - 2021</h1>
+    <p>MIPS and APMs will go into effect over a <a href="http://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/MACRA-MIPS-and-APMs/Timeline.PDF" target='_blank'>timeline</a> from 2015 through 2021 and beyond.</p>
+  </article> -->
+
+  <div class='clearfix'></div><br>
+
+  <article class='factor factor-dark'>
+    <div class='wrapper'>
+      <p style='font-size:10em;' class='text-center'>{% icon fa-calculator %}</p>
+      <h1 style='font-size:4em;' class='text-center'>Decision Factors Calculator</h1>
+      <p style='font-size:large;'>
+        The following factors are important to consider when making the MIPS vs. APM decision.  Fill out the answers to a few questions and this website can start you in the right direction.
+      </p>
+    </div>
+  </article>
+
+  <article class='factor col-md-12'>
+    <div class='wrapper'>
+      <h3 class='factor-title'>Count of a Thing</h3>
+      <div class='factor-description col-md-8'>
+        Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Night of the living dead.
+      </div>
+      <div class='factor-control col-md-4'>
+        <label class='factor-label' for='factor1'>How many things?</label>
+        <input type='text' class='form-control factor-input' id='factor1' value='10' />
+      </div>
+    </div>
+  </article>
+
+  <article class='factor factor-dark col-md-12'>
+    <div class='wrapper'>
+      <h3 class='factor-title'>Average Price of Something</h3>
+      <div class='factor-description col-md-8'>
+        Lucio fulci tremor est dark vivos magna. Expansis creepy army of darkness ulnis witchcraft missing carnem armis Kirkman Moore and Adlard caeruleum in locis. Romero morbo Congress amarus in auras. Nihil horum sagittis tincidunt, zombie slack-jawed gelida survival portenta. The unleashed virus est, et iam zombie mortui ambulabunt super terram. Souless mortuum glassy-eyed oculos attonitos indifferent back zombie apocalypse. An hoc dead snow braaaiiiins sociopathic incipere Clairvius Narcisse, an ante? Is bello mundi z?
+      </div>
+      <div class='factor-control col-md-4'>
+        <label class='factor-label' for='factor2'>How much do you pay for Something?</label>
+        <div class="input-group">
+          <span class="input-group-addon factor-label">$</span>
+          <input type='text' class='form-control factor-input' id='factor2' value='5000' />
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class='explainer explainer-strong-2 col-md-12'>
+    <div class='wrapper'>
+      <p>Based on what you have entered above, you are likely to see the following outcomes with MIPS and APM:</p>
+      <div class='factor-control col-md-6'>
+        <label class='factor-label' for='mips-outcome'>MIPS</label>
+        <input type='text' class='form-control factor-input' id='mips-outcome' value='' />
+      </div>
+      <div class='factor-control col-md-6'>
+        <label class='factor-label' for='apm-outcome'>APM</label>
+        <input type='text' class='form-control factor-input' id='apm-outcome' value='' />
+      </div>
+      <div class='col-md-12'>
+        <p>We hope this has been helpful, but you should take the time to carefully consider your own business needs and how they might impact this decision.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class='explainer explainer-strong-1 col-md-12'>
+    <div class='wrapper'>
+      <div class='col-md-12 text-center'>
+        {% icon fa-exclamation-triangle fa-3x %}
+      </div>
+      <div class='col-md-12'>
+        <p>We hope that you find this calculator helpful, but you should take the time to carefully consider your own business needs and how they might impact this decision. In particular, you should pay attention to:</p>
+        <ul>
+          <li>This thing
+          <li>That other thing
+          <li>Some very important thing
+        </ul>
+      </div>
+    </div>
+  </article>
+</div>
+<div class='clearfix'></div>
