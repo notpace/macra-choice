@@ -53,10 +53,17 @@
 }
 
 .factor {
-  padding: 5% 2em;
+  padding: 3%;
+}
+.factor-group:nth-child(even) {
+  background-color: lighten($brand-color, 10%);
 }
 .factor-label {
   font-size: 1.4em;
+}
+.factor-title {
+  font-size: 1.4em;
+  display: block;
 }
 .factor-input {
   font-size: 1.8em;
@@ -71,4 +78,22 @@
   }
 }
 .factor-light {
+}
+.factor-heading {
+  text-align: center;
+  margin-top: 2em;
+}
+.factor-number {
+  display: inline-block;
+  height: 1.2em;
+  line-height: 1.2em;
+  background: black;
+  color: white;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.outcomes td,
+.outcomes thead th {
+  text-align: right;
 }

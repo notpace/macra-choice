@@ -2,36 +2,8 @@
 layout: default
 ---
 
-<script>
-  // Calculate Model Outcome
-  $( document ).ready(function() {
-    function calculateOutcome() {
-      var outcome = '';
-      MIPSoutcome = parseInt($('#factor1')[0].value) * parseInt($('#factor2')[0].value);
-      $('#mips-outcome')[0].value = MIPSoutcome;
-      APMoutcome = parseInt($('#factor1')[0].value) * parseInt($('#factor2')[0].value) + 50;
-      $('#apm-outcome')[0].value = APMoutcome;
-    };
-    $('.factor-input').on('change, input', calculateOutcome);
-    $(".mc-button").on('click', function(e) {
-      // prevent default anchor click behavior
-      e.preventDefault();
-      // store hash
-      var hash = this.hash;
-      // animate
-      $('html, body').animate({
-         scrollTop: $(hash).offset().top
-       }, 300, function(){
-         // when done, add hash to url
-         // (default click behaviour)
-         window.location.hash = hash;
-      });
-    });
-  });
-</script>
-
 <div class="home">
-  <section class='wrapper' id='purpose' style='min-height:100vh;'>
+  <section class='wrapper' id='purpose' style='min-height:100vh;padding-bottom:10em;'>
     <article class='purpose'>
       <p style='font-size:10em;' class='text-center'><i class='fa fa-map-signs' aria-hidden='true'></i> </p>
       <h1 style='font-size:4em;' class='text-center'>MIPS or APMs?</h1>
@@ -45,47 +17,44 @@ layout: default
     </article>
   </section>
 
-  <div style='width:100%;height:10em;'></div>
+  <section class='explainer-strong-2' id='mips-apm-explained' style='min-height:100vh;padding-bottom:10em;'>
+    <div class='wrapper'>
+      <p style='font-size:10em;' class='text-center'><i class='fa fa-question-circle-o' aria-hidden='true'></i></p>
+      <h1 style='font-size:3em;' class='text-center'>What are MIPS and APMs?</h1>
+      <div class='explainer'>
+        <article class='col-md-6'>
+          <h2>Merit-Based Incentive Payment System (MIPS)</h2>
+          <p>The MIPS is a new program that combines parts of the <a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/PQRS/index.html?redirect=/pqri/">Physician Quality Reporting System</a> (PQRS), the <a href="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeedbackProgram/ValueBasedPaymentModifier.html">Value Modifier</a> (VM or <a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/VMP/Value-Modifier-VM-or-PVBM.html">Value-based Payment Modifier</a>), and the <a href="https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/index.html?redirect=/ehrincentiveprogramsincentiveprogram">Medicare Electronic Health Record</a> (EHR) incentive program into one single program in which <a href="/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/MACRA-MIPS-and-APMs/MIPS-EPs-Slide.pptx">Eligible Professionals (EPs)</a> will be measured on:</p>
+          <ul style='list-style:none;font-size:large;margin-left:1%;'>
+            <li><i class='fa fa-fw fa-check' aria-hidden='true'></i> Quality</li>
+            <li><i class='fa fa-fw fa-medkit' aria-hidden='true'></i> Resource use</li>
+            <li><i class='fa fa-fw fa-line-chart' aria-hidden='true'></i> Clinical practice improvement</li>
+            <li><i class='fa fa-fw fa-laptop' aria-hidden='true'></i> Meaningful use of certified EHR technology</li>
+          </ul>
+        </article>
 
-  <section class='wrapper' id='mips-apm-explained'>
-    <h1 style='font-size:3em;' class='text-center'>What are MIPS and APMs?</h1>
-    <div class='explainer'>
-      <article class='col-md-6'>
-        <h2>Merit-Based Incentive Payment System (MIPS)</h2>
-        <p>The MIPS is a new program that combines parts of the <a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/PQRS/index.html?redirect=/pqri/">Physician Quality Reporting System</a> (PQRS), the <a href="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeedbackProgram/ValueBasedPaymentModifier.html">Value Modifier</a> (VM or <a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/VMP/Value-Modifier-VM-or-PVBM.html">Value-based Payment Modifier</a>), and the <a href="https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/index.html?redirect=/ehrincentiveprogramsincentiveprogram">Medicare Electronic Health Record</a> (EHR) incentive program into one single program in which <a href="/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/MACRA-MIPS-and-APMs/MIPS-EPs-Slide.pptx">Eligible Professionals (EPs)</a> will be measured on:</p>
-        <ul style='list-style:none;font-size:large;margin-left:1%;'>
-          <li><i class='fa fa-fw fa-check' aria-hidden='true'></i> Quality</li>
-          <li><i class='fa fa-fw fa-medkit' aria-hidden='true'></i> Resource use</li>
-          <li><i class='fa fa-fw fa-line-chart' aria-hidden='true'></i> Clinical practice improvement</li>
-          <li><i class='fa fa-fw fa-laptop' aria-hidden='true'></i> Meaningful use of certified EHR technology</li>
-        </ul>
-      </article>
+        <article class='col-md-6'>
+          <h2>Alternative Payment Model (APM)</h2>
+          <p>APMs give us new ways to pay health care providers for the care they give Medicare beneficiaries. For example:</p>
+          <ul>
+            <li>From 2019-2024, pay some participating health care providers a lump-sum&nbsp;incentive payment.</li>
+            <li>Increased transparency of physician-focused payment models.</li>
+            <li>Starting in 2026, offers some participating health care providers higher annual payments.</li>
+          </ul>
+          <p><a href="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/ACO/index.html?redirect=/aco">Accountable Care Organizations</a> (ACOs), Patient Centered Medical Homes, and <a href="https://www.cms.gov/Newsroom/MediaReleaseDatabase/Fact-sheets/2015-Fact-sheets-items/2015-08-13-2.html">bundled payment models</a> are some examples of APMs.</p>
+        </article>
+      </div>
 
-      <article class='col-md-6'>
-        <h2>Alternative Payment Model (APM)</h2>
-        <p>APMs give us new ways to pay health care providers for the care they give Medicare beneficiaries. For example:</p>
-        <ul>
-          <li>From 2019-2024, pay some participating health care providers a lump-sum&nbsp;incentive payment.</li>
-          <li>Increased transparency of physician-focused payment models.</li>
-          <li>Starting in 2026, offers some participating health care providers higher annual payments.</li>
-        </ul>
-        <p><a href="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/ACO/index.html?redirect=/aco">Accountable Care Organizations</a> (ACOs), Patient Centered Medical Homes, and <a href="https://www.cms.gov/Newsroom/MediaReleaseDatabase/Fact-sheets/2015-Fact-sheets-items/2015-08-13-2.html">bundled payment models</a> are some examples of APMs.</p>
+      <article class='col-md-12 text-center'>
+        <a class='mc-button mc-button-warning' href='#calculator' style='text-decoration:none'>Help me choose!</a>
       </article>
     </div>
-
-    <article class='col-md-12 text-center'>
-      <a class='mc-button mc-button-warning' href='#calculator'>Help me choose!</a>
-    </article>
   </section>
-
-  <div style='width:100%;height:10em;'></div>
 
   <!-- <article class='explainer explainer-strong-1 col-md-12 text-center'>
     <h1 style='font-size:3em;'><i class='fa fa-clock-o' aria-hidden='true'></i> 2015 - 2021</h1>
     <p>MIPS and APMs will go into effect over a <a href="http://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/MACRA-MIPS-and-APMs/Timeline.PDF" target='_blank'>timeline</a> from 2015 through 2021 and beyond.</p>
   </article> -->
-
-  <div class='clearfix'></div><br>
 
   <article class='factor factor-dark' id='calculator'>
     <div class='wrapper'>
@@ -97,45 +66,218 @@ layout: default
     </div>
   </article>
 
+  <div class='wrapper'>
+    <h2 class='factor-heading col-md-12'>Clinical Assumptions</h2>
+  </div>
+
   <article class='factor col-md-12'>
     <div class='wrapper'>
-      <h3 class='factor-title'>Count of a Thing</h3>
-      <div class='factor-description col-md-8'>
-        Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Night of the living dead.
-      </div>
+      <label class='factor-title' for='part_b_revenue'><span class='factor-number'>1</span> Annual Part B Revenue</label>
       <div class='factor-control col-md-4'>
-        <label class='factor-label' for='factor1'>How many things?</label>
-        <input type='text' class='form-control factor-input' id='factor1' value='10' />
+        <div class="input-group">
+          <span class="input-group-addon factor-label">$</span>
+          <input type='number' class='form-control factor-input' id='part_b_revenue' value='75000' />
+        </div>
+      </div>
+      <div class='factor-description col-md-8'>
+        Annual part B revenue is the amount of money collected from providing care to Medicare Part B beneficiaries.
       </div>
     </div>
   </article>
 
-  <article class='factor factor-dark col-md-12'>
-    <div class='wrapper'>
-      <h3 class='factor-title'>Average Price of Something</h3>
-      <div class='factor-description col-md-8'>
-        Lucio fulci tremor est dark vivos magna. Expansis creepy army of darkness ulnis witchcraft missing carnem armis Kirkman Moore and Adlard caeruleum in locis. Romero morbo Congress amarus in auras. Nihil horum sagittis tincidunt, zombie slack-jawed gelida survival portenta. The unleashed virus est, et iam zombie mortui ambulabunt super terram. Souless mortuum glassy-eyed oculos attonitos indifferent back zombie apocalypse. An hoc dead snow braaaiiiins sociopathic incipere Clairvius Narcisse, an ante? Is bello mundi z?
-      </div>
-      <div class='factor-control col-md-4'>
-        <label class='factor-label' for='factor2'>How much do you pay for Something?</label>
-        <div class="input-group">
-          <span class="input-group-addon factor-label">$</span>
-          <input type='text' class='form-control factor-input' id='factor2' value='5000' />
+  <div class='wrapper'>
+    <h2 class='factor-heading col-md-12'>APM Assumptions</h2>
+  </div>
+
+  <section class='factor-group'>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='patients_per_panel'><span class='factor-number'>2</span> Patients Per Panel</label>
+        <div class='factor-control col-md-4'>
+          <input type='number' class='form-control factor-input' id='patients_per_panel' value='120' />
+        </div>
+        <div class='factor-description col-md-8'>
+          The number of patients whose care a clinician will be "responsible for" within a theoretical APM.
         </div>
       </div>
-    </div>
-  </article>
+    </article>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='per_beneficiary_spending'><span class='factor-number'>3</span> Per-Beneficiary Spending</label>
+        <div class='factor-control col-md-4'>
+          <div class="input-group">
+            <span class="input-group-addon factor-label">$</span>
+            <input type='number' class='form-control factor-input' id='per_beneficiary_spending' value='10000' />
+          </div>
+        </div>
+        <div class='factor-description col-md-8'>
+          Per-Beneficiary Spending is how much a patient will be expected to cost. A clinician will be expected to keep spending at this number for a theoretical APM. This number depends on clinician type and patient population.
+        </div>
+      </div>
+    </article>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='savings_loss_range'><span class='factor-number'>4</span> APM Savings/Loss Range</label>
+        <div class='factor-control col-md-4'>
+          <div class="input-group">
+            <input type='number' class='form-control factor-input' id='savings_loss_range' value='5' />
+              <span class="input-group-addon factor-label">%</span>
+          </div>
+        </div>
+        <div class='factor-description col-md-8'>
+          This is the range of performance assumption for a clinician. For example, typically, ACOs perform (+/-) 1-2% compared to their benchmarks. (+/-) 5% is relatively unlikely. Clinicians currently in APMs can change this percentage according to historical performance to get a better look at possible risks/rewards.
+        </div>
+      </div>
+    </article>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='marginal_risk_assumption'><span class='factor-number'>5</span> Marginal Risk Assumption</label>
+        <div class='factor-control col-md-4'>
+          <div class="input-group">
+            <input type='number' class='form-control factor-input' id='marginal_risk_assumption' value='30' />
+              <span class="input-group-addon factor-label">%</span>
+          </div>
+        </div>
+        <div class='factor-description col-md-8'>
+          The Marginal Risk Assumption is the percentage that an APM will be sharing in savings/losses over or under the benchmark. This number depends on the type of APM a clinician is in.
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <div class='wrapper'>
+    <h2 class='factor-heading col-md-12'>MIPS Assumptions</h2>
+  </div>
+
+  <section class='factor-group'>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='mips_performance_range'><span class='factor-number'>6</span> MIPS Performance Range</label>
+        <div class='factor-control col-md-4'>
+          <div class="input-group">
+            <input type='number' class='form-control factor-input' id='mips_performance_range' value='4' />
+              <span class="input-group-addon factor-label">%</span>
+          </div>
+        </div>
+        <div class='factor-description col-md-8'>
+          This is the maximum performance range in MIPS in year 1 of payment adjustments (2019). This number will go up to 9% in 2022.
+        </div>
+      </div>
+    </article>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='upside_performance_assumption'><span class='factor-number'>7</span> Upside Performance Assumption</label>
+        <div class='factor-control col-md-4'>
+          <div class="input-group">
+            <input type='number' class='form-control factor-input' id='upside_performance_assumption' value='5' />
+              <span class="input-group-addon factor-label">%</span>
+          </div>
+        </div>
+        <div class='factor-description col-md-8'>
+          MACRA authorized a 500 million per year exceptional performance payment for clinicians that perform exceptionally well (better than a threshold that is yet to be defined). The maximum adjustment is +10% (very unlikely). Here, an assumption is 5% bonus for clinicians performing exceptionally well.
+        </div>
+      </div>
+    </article>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='budget_scale_factor_1'><span class='factor-number'>8</span> Budget Neutrality Example Scale Factor #1</label>
+        <div class='factor-control col-md-4'>
+          <input type='number' class='form-control factor-input' id='budget_scale_factor_1' value='0.5' />
+        </div>
+        <div class='factor-description col-md-8'>
+          MIPS is budget neutral. This means that if more clinicians get positive adjustments, then those positive-adjustment clinicians may have their payments scaled down. This is an example where that scenario plays out, the assumed scale factor is 0.5.
+        </div>
+      </div>
+    </article>
+
+    <article class='factor col-md-12'>
+      <div class='wrapper'>
+        <label class='factor-title' for='budget_scale_factor_2'><span class='factor-number'>9</span> Budget Neutrality Example Scale Factor #2</label>
+        <div class='factor-control col-md-4'>
+          <input type='number' class='form-control factor-input' id='budget_scale_factor_2' value='3' />
+        </div>
+        <div class='factor-description col-md-8'>
+          In another scenario, more clinicians get negative adjustments. The relatively fewer positive-adjustment clinicians will have their payments scaled up to get MIPS back to budget neutral. The max scale factor is 3.
+        </div>
+      </div>
+    </article>
+
+  </section>
 
   <article class='explainer explainer-strong-2 col-md-12'>
     <div class='wrapper'>
       <p>Based on what you have entered above, you are likely to see the following outcomes with MIPS and APM:</p>
       <div class='factor-control col-md-6'>
-        <label class='factor-label' for='mips-outcome'>MIPS</label>
-        <input type='text' class='form-control factor-input' id='mips-outcome' value='' />
+        <!-- <label class='factor-label' for='mips-outcome'>MIPS</label>
+        <input type='text' class='form-control factor-input' id='mips-outcome' value='' /> -->
+        <h2>MIPS</h2>
+        <table class='table outcomes'>
+          <thead>
+            <th>
+            <th>Upside
+            <th>Downside
+          </thead>
+          <tbody>
+            <tr>
+              <th>Adjustments
+              <td><span id='mips_adjustments_upside'>$3,000.00</span>
+              <td><span id='mips_adjustments_downside'>-$3,000.00</span>
+            <tr>
+              <th>Exceptional Performance
+              <td><span id='mips_performance_upside'>$3,750.00</span>
+              <td><span id='mips_performance_downside'>$0.00</span>
+            <tr>
+              <th>TOTAL
+              <td><span id='mips_total_upside'>$6,750.00</span>
+              <td><span id='mips_total_downside'>-$3,000.00</span>
+            <tr>
+              <th>Budget Scenario #1
+              <td><span id='mips_budget_1_upside'>$3,750.00</span>
+              <td><span id='mips_budget_1_downside'>$0.00</span>
+            <tr>
+              <th>Budget Scenario #2
+              <td><span id='mips_budget_2_upside'>$20,250.00</span>
+              <td><span id='mips_budget_2_downside'>$0.00</span>
+          </tbody>
+        </table>
       </div>
       <div class='factor-control col-md-6'>
-        <label class='factor-label' for='apm-outcome'>APM</label>
-        <input type='text' class='form-control factor-input' id='apm-outcome' value='' />
+        <!-- <label class='factor-label' for='apm-outcome'>APM</label>
+        <input type='text' class='form-control factor-input' id='apm-outcome' value='' /> -->
+        <h2>APM</h2>
+        <table class='table outcomes'>
+          <thead>
+            <th>
+            <th>Upside
+            <th>Likely
+            <th>Downside
+          </thead>
+          <tbody>
+            <tr>
+              <th>5% Incentive
+              <td><span id='five_upside'>$3,750.00</span>
+              <td><span id='five_likely'>$3,750.00</span>
+              <td><span id='five_downside'>$3,750.00</span>
+            <tr>
+              <th>Shared Savings/Losses
+              <td><span id='shared_upside'>$18,000.00</span>
+              <td><span id='shared_likely'>$0.00</span>
+              <td><span id='shared_downside'>-$18,000.00</span>
+            <tr>
+              <th>TOTAL
+              <td><span id='total_upside'>$21,750.00</span>
+              <td><span id='total_likely'>$3,750.00</span>
+              <td><span id='total_downside'>-$14,250.00</span>
+          </tbody>
+        </table>
       </div>
     </div>
   </article>
@@ -146,11 +288,11 @@ layout: default
         <i class='fa fa-fw fa-exclamation-triangle fa-3x' aria-hidden='true'></i>
       </div>
       <div class='col-md-12'>
-        <p>We hope that you find this calculator helpful, but you should take the time to carefully consider your own business needs and how they might impact this decision. In particular, you should pay attention to:</p>
+        <p>We hope that you find this calculator helpful, but you should take the time to carefully consider your own business needs and how they might impact this decision. In particular, you should keep in mind that:</p>
         <ul>
-          <li>This thing
-          <li>That other thing
-          <li>Some very important thing
+          <li>This calculator is valid for 'Advanced APMs' that qualify for incentive payments.  APMs which do not qualify for incentive payments will receive a better scoring in MIPS, but it is difficult to calculate the potential upside and downside without further information.
+          <li>APMs and MIPS assumptions on this site are based on a proposed rule, so the calculations may change when the final rule is released (November 2016).
+          <li>Clinicians should also keep in mind the low-volume threshold: any individual eligible clinician or group who does not exceed the low-volume threshold (Medicare billing charges less than or equal to $10,000 AND provides care for 100 or fewer Part B-enrolled Medicare beneficiaries) will be exempt from MIPS.
         </ul>
       </div>
     </div>
