@@ -160,10 +160,10 @@ layout: default
       <div class='wrapper'>
         <label class='factor-title' for='upside_performance_assumption'><span class='factor-number'>6</span> Upside Performance Assumption</label>
         <div class='factor-control col-md-5'>
-          <div class="input-group">
-            <input type='number' class='form-control factor-input' id='upside_performance_assumption' value='5' max='10' />
-              <span class="input-group-addon factor-label">%</span>
+          <div class='col-sm-12 text-center'>
+            <span id='upside_performance_assumption_value' style='font-size:2em;'>5.0%</span>
           </div>
+          <input class='factor-input' type='range' min='0' max='10' step='0.1' value='5' id='upside_performance_assumption' />
         </div>
         <div class='factor-description col-md-7'>
           MACRA authorized a 500 million per year exceptional performance payment for clinicians that perform exceptionally well (better than a threshold that is yet to be defined). The maximum adjustment is +10% (very unlikely). Here, an assumption is 5% bonus for clinicians performing exceptionally well.
@@ -174,8 +174,14 @@ layout: default
     <article class='factor col-md-12'>
       <div class='wrapper'>
         <label class='factor-title' for='budget_scale_factor'><span class='factor-number'>7</span> Budget Neutrality Example Scale Factor</label>
-        <div class='factor-control col-md-5'>
+        <!-- <div class='factor-control col-md-5'>
           <input type='number' class='form-control factor-input' id='budget_scale_factor' value='0.5' step='0.1' />
+        </div> -->
+        <div class='factor-control col-md-5'>
+          <div class='col-sm-12 text-center'>
+            <span id='budget_scale_factor_value' style='font-size:2em;'>0.5</span>
+          </div>
+          <input class='factor-input' type='range' min='0.1' max='3' step='0.1' value='0.5' id='budget_scale_factor' />
         </div>
         <div class='factor-description col-md-7'>
           MIPS is budget neutral. This means that if more clinicians get positive adjustments, then those positive-adjustment clinicians may have their payments scaled down. This is an example where that scenario plays out, the assumed scale factor is 0.5.

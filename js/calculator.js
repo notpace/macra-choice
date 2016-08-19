@@ -3,11 +3,18 @@ $( document ).ready(function() {
   function getValue(id){
     return parseFloat($('#' + id)[0].value)
   }
+  // Interactive range slider value labels
   $('#savings_loss_range').on('change, input', function(range){
     $('#savings_loss_range_value')[0].innerHTML = '(+/-) ' + parseFloat(range.target.value).toFixed(1) + '%';
   });
   $('#marginal_risk_assumption').on('change, input', function(range){
     $('#marginal_risk_assumption_value')[0].innerHTML = parseInt(range.target.value) + '%';
+  });
+  $('#upside_performance_assumption').on('change, input', function(range){
+    $('#upside_performance_assumption_value')[0].innerHTML = parseFloat(range.target.value).toFixed(1) + '%';
+  });
+  $('#budget_scale_factor').on('change, input', function(range){
+    $('#budget_scale_factor_value')[0].innerHTML = parseFloat(range.target.value).toFixed(1);
   });
   function calculateOutcome() {
     // Get user-entered factors
