@@ -92,14 +92,8 @@
   padding: 0 5px;
   border-radius: 5px;
 }
+input[type="range"] {
+  margin-top: 0;
+}
 
-.outcomes {
-  background: white;
-}
-.outcomes td,
-.outcomes thead th {
-  text-align: right;
-}
-.outcome-amount {
-  white-space: nowrap;
-}
+@media screen and (max-width: 600px) { .site-nav .menu-icon {height: 34px;}}

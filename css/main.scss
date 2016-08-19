@@ -3,6 +3,12 @@
 ---
 @charset "utf-8";
 
+@font-face{
+  font-family:'Open Sans';
+  src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 // Our variables
@@ -53,5 +59,13 @@ $on-laptop:        800px;
         "base",
         "layout",
         "syntax-highlighting",
-        "choice"
+        "bootstrap.min",
+        "font-awesome.min",
+        "choice",
+        "inputrange"
 ;
+
+html, body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}

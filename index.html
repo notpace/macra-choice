@@ -73,13 +73,13 @@ layout: default
   <article class='factor col-md-12'>
     <div class='wrapper'>
       <label class='factor-title' for='part_b_revenue'><span class='factor-number'>1</span> Annual Part B Revenue</label>
-      <div class='factor-control col-md-4'>
+      <div class='factor-control col-md-5'>
         <div class="input-group">
           <span class="input-group-addon factor-label">$</span>
           <input type='number' class='form-control factor-input' id='part_b_revenue' value='75000' />
         </div>
       </div>
-      <div class='factor-description col-md-8'>
+      <div class='factor-description col-md-7'>
         Annual part B revenue is the amount of money collected from providing care to Medicare Part B beneficiaries.
       </div>
     </div>
@@ -94,10 +94,10 @@ layout: default
     <article class='factor col-md-12'>
       <div class='wrapper'>
         <label class='factor-title' for='patients_per_panel'><span class='factor-number'>2</span> Patients Per Panel</label>
-        <div class='factor-control col-md-4'>
+        <div class='factor-control col-md-5'>
           <input type='number' class='form-control factor-input' id='patients_per_panel' value='120' />
         </div>
-        <div class='factor-description col-md-8'>
+        <div class='factor-description col-md-7'>
           The number of patients whose care a clinician will be "responsible for" within a theoretical APM.
         </div>
       </div>
@@ -106,13 +106,13 @@ layout: default
     <article class='factor col-md-12'>
       <div class='wrapper'>
         <label class='factor-title' for='per_beneficiary_spending'><span class='factor-number'>3</span> Per-Beneficiary Spending</label>
-        <div class='factor-control col-md-4'>
+        <div class='factor-control col-md-5'>
           <div class="input-group">
             <span class="input-group-addon factor-label">$</span>
             <input type='number' class='form-control factor-input' id='per_beneficiary_spending' value='10000' />
           </div>
         </div>
-        <div class='factor-description col-md-8'>
+        <div class='factor-description col-md-7'>
           Per-Beneficiary Spending is how much a patient will be expected to cost. A clinician will be expected to keep spending at this number for a theoretical APM. This number depends on clinician type and patient population.
         </div>
       </div>
@@ -121,13 +121,13 @@ layout: default
     <article class='factor col-md-12'>
       <div class='wrapper'>
         <label class='factor-title' for='savings_loss_range'><span class='factor-number'>4</span> APM Savings/Loss Range</label>
-        <div class='factor-control col-md-4'>
-          <div class="input-group">
-            <input type='number' class='form-control factor-input' id='savings_loss_range' value='5' />
-              <span class="input-group-addon factor-label">%</span>
+        <div class='factor-control col-md-5'>
+          <div class='col-sm-12 text-center'>
+            <span id='savings_loss_range_value' style='font-size:2em;'>(+/-) 1.0%</span>
           </div>
+          <input class='factor-input' type='range' min='0' max='5' step='0.1' value='1' id='savings_loss_range' />
         </div>
-        <div class='factor-description col-md-8'>
+        <div class='factor-description col-md-7'>
           This is the range of performance assumption for a clinician. For example, typically, ACOs perform (+/-) 1-2% compared to their benchmarks. (+/-) 5% is relatively unlikely. Clinicians currently in APMs can change this percentage according to historical performance to get a better look at possible risks/rewards.
         </div>
       </div>
@@ -136,13 +136,13 @@ layout: default
     <article class='factor col-md-12'>
       <div class='wrapper'>
         <label class='factor-title' for='marginal_risk_assumption'><span class='factor-number'>5</span> Marginal Risk Assumption</label>
-        <div class='factor-control col-md-4'>
-          <div class="input-group">
-            <input type='number' class='form-control factor-input' id='marginal_risk_assumption' value='30' />
-              <span class="input-group-addon factor-label">%</span>
+        <div class='factor-control col-md-5'>
+          <div class='col-sm-12 text-center'>
+            <span id='marginal_risk_assumption_value' style='font-size:2em;'>30%</span>
           </div>
+          <input class='factor-input' type='range' min='30' max='100' step='1' value='30' id='marginal_risk_assumption' />
         </div>
-        <div class='factor-description col-md-8'>
+        <div class='factor-description col-md-7'>
           The Marginal Risk Assumption is the percentage that an APM will be sharing in savings/losses over or under the benchmark. This number depends on the type of APM a clinician is in.
         </div>
       </div>
@@ -158,29 +158,14 @@ layout: default
 
     <article class='factor col-md-12'>
       <div class='wrapper'>
-        <label class='factor-title' for='mips_performance_range'><span class='factor-number'>6</span> MIPS Performance Range</label>
-        <div class='factor-control col-md-4'>
+        <label class='factor-title' for='upside_performance_assumption'><span class='factor-number'>6</span> Upside Performance Assumption</label>
+        <div class='factor-control col-md-5'>
           <div class="input-group">
-            <input type='number' class='form-control factor-input' id='mips_performance_range' value='4' />
+            <input type='number' class='form-control factor-input' id='upside_performance_assumption' value='5' max='10' />
               <span class="input-group-addon factor-label">%</span>
           </div>
         </div>
-        <div class='factor-description col-md-8'>
-          This is the maximum performance range in MIPS in year 1 of payment adjustments (2019). This number will go up to 9% in 2022.
-        </div>
-      </div>
-    </article>
-
-    <article class='factor col-md-12'>
-      <div class='wrapper'>
-        <label class='factor-title' for='upside_performance_assumption'><span class='factor-number'>7</span> Upside Performance Assumption</label>
-        <div class='factor-control col-md-4'>
-          <div class="input-group">
-            <input type='number' class='form-control factor-input' id='upside_performance_assumption' value='5' />
-              <span class="input-group-addon factor-label">%</span>
-          </div>
-        </div>
-        <div class='factor-description col-md-8'>
+        <div class='factor-description col-md-7'>
           MACRA authorized a 500 million per year exceptional performance payment for clinicians that perform exceptionally well (better than a threshold that is yet to be defined). The maximum adjustment is +10% (very unlikely). Here, an assumption is 5% bonus for clinicians performing exceptionally well.
         </div>
       </div>
@@ -188,24 +173,12 @@ layout: default
 
     <article class='factor col-md-12'>
       <div class='wrapper'>
-        <label class='factor-title' for='budget_scale_factor_1'><span class='factor-number'>8</span> Budget Neutrality Example Scale Factor #1</label>
-        <div class='factor-control col-md-4'>
-          <input type='number' class='form-control factor-input' id='budget_scale_factor_1' value='0.5' />
+        <label class='factor-title' for='budget_scale_factor'><span class='factor-number'>7</span> Budget Neutrality Example Scale Factor</label>
+        <div class='factor-control col-md-5'>
+          <input type='number' class='form-control factor-input' id='budget_scale_factor' value='0.5' step='0.1' />
         </div>
-        <div class='factor-description col-md-8'>
+        <div class='factor-description col-md-7'>
           MIPS is budget neutral. This means that if more clinicians get positive adjustments, then those positive-adjustment clinicians may have their payments scaled down. This is an example where that scenario plays out, the assumed scale factor is 0.5.
-        </div>
-      </div>
-    </article>
-
-    <article class='factor col-md-12'>
-      <div class='wrapper'>
-        <label class='factor-title' for='budget_scale_factor_2'><span class='factor-number'>9</span> Budget Neutrality Example Scale Factor #2</label>
-        <div class='factor-control col-md-4'>
-          <input type='number' class='form-control factor-input' id='budget_scale_factor_2' value='3' />
-        </div>
-        <div class='factor-description col-md-8'>
-          In another scenario, more clinicians get negative adjustments. The relatively fewer positive-adjustment clinicians will have their payments scaled up to get MIPS back to budget neutral. The max scale factor is 3.
         </div>
       </div>
     </article>
@@ -215,70 +188,7 @@ layout: default
   <article class='explainer explainer-strong-2 col-md-12'>
     <div class='wrapper'>
       <p>Based on what you have entered above, you are likely to see the following outcomes with MIPS and APM:</p>
-      <div class='col-md-6'>
-        <h2>MIPS</h2>
-        <div class='table-responsive'>
-          <table class='table outcomes'>
-            <thead>
-              <th>
-              <th>Upside
-              <th>Downside
-            </thead>
-            <tbody>
-              <tr>
-                <th>Adjustments
-                <td><span class='outcome-amount' id='mips_adjustments_upside'>$3,000.00</span>
-                <td><span class='outcome-amount' id='mips_adjustments_downside'>-$3,000.00</span>
-              <tr>
-                <th>Exceptional Performance
-                <td><span class='outcome-amount' id='mips_performance_upside'>$3,750.00</span>
-                <td><span class='outcome-amount' id='mips_performance_downside'>$0.00</span>
-              <tr>
-                <th>TOTAL
-                <td><span class='outcome-amount' id='mips_total_upside'>$6,750.00</span>
-                <td><span class='outcome-amount' id='mips_total_downside'>-$3,000.00</span>
-              <tr>
-                <th>Budget Scenario #1
-                <td><span class='outcome-amount' id='mips_budget_1_upside'>$3,750.00</span>
-                <td><span class='outcome-amount' id='mips_budget_1_downside'>$0.00</span>
-              <tr>
-                <th>Budget Scenario #2
-                <td><span class='outcome-amount' id='mips_budget_2_upside'>$20,250.00</span>
-                <td><span class='outcome-amount' id='mips_budget_2_downside'>$0.00</span>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class='col-md-6'>
-        <h2>APM</h2>
-        <div class='table-responsive'>
-          <table class='table outcomes'>
-            <thead>
-              <th>
-              <th>Upside
-              <th>Likely
-              <th>Downside
-            </thead>
-            <tbody>
-              <tr>
-                <th>5% Incentive
-                <td><span class='outcome-amount' id='five_upside'>$3,750.00</span>
-                <td><span class='outcome-amount' id='five_likely'>$3,750.00</span>
-                <td><span class='outcome-amount' id='five_downside'>$3,750.00</span>
-              <tr>
-                <th>Shared Savings/Losses
-                <td><span class='outcome-amount' id='shared_upside'>$18,000.00</span>
-                <td><span class='outcome-amount' id='shared_likely'>$0.00</span>
-                <td><span class='outcome-amount' id='shared_downside'>-$18,000.00</span>
-              <tr>
-                <th>TOTAL
-                <td><span class='outcome-amount' id='total_upside'>$21,750.00</span>
-                <td><span class='outcome-amount' id='total_likely'>$3,750.00</span>
-                <td><span class='outcome-amount' id='total_downside'>-$14,250.00</span>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <div id="chartContainer" style="height: 400px;width: 100%;"></div>
     </div>
   </article>
 

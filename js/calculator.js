@@ -3,14 +3,12 @@ $( document ).ready(function() {
   function getValue(id){
     return parseFloat($('#' + id)[0].value)
   }
-  function makeCurrency(number) {
-    return number.toLocaleString('USD', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits : 2,
-      maximumFractionDigits : 2
-    })
-  }
+  $('#savings_loss_range').on('change, input', function(range){
+    $('#savings_loss_range_value')[0].innerHTML = '(+/-) ' + parseFloat(range.target.value).toFixed(1) + '%';
+  });
+  $('#marginal_risk_assumption').on('change, input', function(range){
+    $('#marginal_risk_assumption_value')[0].innerHTML = parseInt(range.target.value) + '%';
+  });
   function calculateOutcome() {
     // Get user-entered factors
     var part_b_revenue = getValue('part_b_revenue'),
@@ -18,42 +16,98 @@ $( document ).ready(function() {
         per_beneficiary_spending = getValue('per_beneficiary_spending'),
         savings_loss_range = getValue('savings_loss_range') * 0.01,
         marginal_risk_assumption = getValue('marginal_risk_assumption') * 0.01,
-        mips_performance_range = getValue('mips_performance_range') * 0.01,
         upside_performance_assumption = getValue('upside_performance_assumption') * 0.01,
-        budget_scale_factor_1 = getValue('budget_scale_factor_1'),
-        budget_scale_factor_2 = getValue('budget_scale_factor_2')
+        budget_scale_factor = getValue('budget_scale_factor')
     // APM calculations
     var five_percent = 0.05 * part_b_revenue
-    $('#five_upside')[0].innerHTML = makeCurrency(five_percent);
-    $('#five_likely')[0].innerHTML = makeCurrency(five_percent);
-    $('#five_downside')[0].innerHTML = makeCurrency(five_percent);
     var patient_spending = patients_per_panel * per_beneficiary_spending
     var shared_upside = (patient_spending - (patient_spending - patient_spending * savings_loss_range)) * marginal_risk_assumption
     var shared_downside = (patient_spending - (patient_spending + patient_spending * savings_loss_range)) * marginal_risk_assumption
-    $('#shared_upside')[0].innerHTML = makeCurrency(shared_upside);
-    $('#shared_downside')[0].innerHTML = makeCurrency(shared_downside);
     var total_upside = five_percent + shared_upside;
-    var total_likely = five_percent;
     var total_downside = five_percent + shared_downside;
-    $('#total_upside')[0].innerHTML = makeCurrency(total_upside);
-    $('#total_likely')[0].innerHTML = makeCurrency(total_likely);
-    $('#total_downside')[0].innerHTML = makeCurrency(total_downside);
-    // MIPS calculations
-    var mips_adjustments_upside = part_b_revenue * mips_performance_range;
-    var mips_adjustments_downside = part_b_revenue * mips_performance_range * -1;
-    $('#mips_adjustments_upside')[0].innerHTML = makeCurrency(mips_adjustments_upside);
-    $('#mips_adjustments_downside')[0].innerHTML = makeCurrency(mips_adjustments_downside);
+    // Calculate MIPS over time based on fixed performance range
+    var performance_range_values = [0.04, 0.05, 0.07, 0.09];
     var mips_performance_upside = part_b_revenue * upside_performance_assumption;
-    $('#mips_performance_upside')[0].innerHTML = makeCurrency(mips_performance_upside);
-    var mips_total_upside = mips_adjustments_upside + mips_performance_upside;
-    var mips_total_downside = mips_adjustments_downside;
-    $('#mips_total_upside')[0].innerHTML = makeCurrency(mips_total_upside);
-    $('#mips_total_downside')[0].innerHTML = makeCurrency(mips_total_downside);
-    var mips_budget_1_upside = mips_total_upside * budget_scale_factor_1;
-    $('#mips_budget_1_upside')[0].innerHTML = makeCurrency(mips_budget_1_upside);
-    var mips_budget_2_upside = mips_total_upside * budget_scale_factor_2;
-    $('#mips_budget_2_upside')[0].innerHTML = makeCurrency(mips_budget_2_upside);
+    var mips_adjustments_upside_values = [];
+    var mips_adjustments_downside_values = [];
+    for (i in performance_range_values) {
+      mips_adjustments_upside_values.push( part_b_revenue * performance_range_values[i] );
+      mips_adjustments_downside_values.push( part_b_revenue * performance_range_values[i] * -1 );
+    };
+    var mips_total_upside_values = [];
+    for (i in mips_adjustments_upside_values) {
+      mips_total_upside_values.push( mips_adjustments_upside_values[i] + mips_performance_upside );
+    }
+    var mips_budget_neutral_upside_values = [];
+    for (i in mips_total_upside_values) {
+      mips_budget_neutral_upside_values.push( mips_total_upside_values[i] * budget_scale_factor );
+    }
+    var mips_total_downside_values = mips_adjustments_downside_values;
+    // Render the chart for MIPS and APM values over time
+  	var chart = new CanvasJS.Chart("chartContainer",
+  	{
+  		title:{
+  			text: "Projected Revenue Range (per clinician)",
+        fontFamily: 'Open Sans'
+  		},
+  		exportEnabled: false,
+  		axisY: {
+  			includeZero:true,
+  			prefix: "$",
+        fontFamily: 'Open Sans'
+  		},
+  		toolTip: {
+  			shared: true,
+        fontFamily: 'Open Sans'
+  		},
+      legend: {
+        fontFamily: 'Open Sans'
+      },
+  		data: [
+  		{
+  			type: "rangeColumn",
+  			name: "MIPS",
+  			indexLabelFontSize: 12,
+  			yValueFormatString: "$#0.##",
+  			showInLegend: true,
+  			dataPoints: [
+  				{label: '2019', y: [mips_total_downside_values[0], mips_total_upside_values[0]]},
+  				{label: '2020', y: [mips_total_downside_values[1], mips_total_upside_values[1]]},
+  				{label: '2021', y: [mips_total_downside_values[2], mips_total_upside_values[2]]},
+  				{label: '2022 and beyond', y: [mips_total_downside_values[3], mips_total_upside_values[3]]}
+  			]
+  		},
+  		{
+  			type: "rangeColumn",
+  			name: "Budget-Neutral MIPS",
+  			indexLabelFontSize: 12,
+  			yValueFormatString: "$#0.##",
+  			showInLegend: true,
+  			dataPoints: [
+  				{label: '2019', y: [mips_total_downside_values[0], mips_budget_neutral_upside_values[0]]},
+  				{label: '2020', y: [mips_total_downside_values[1], mips_budget_neutral_upside_values[1]]},
+  				{label: '2021', y: [mips_total_downside_values[2], mips_budget_neutral_upside_values[2]]},
+  				{label: '2022 and beyond', y: [mips_total_downside_values[3], mips_budget_neutral_upside_values[3]]}
+  			]
+  		},
+  		{
+  			type: "rangeColumn",
+  			name: "APM",
+  			indexLabelFontSize: 12,
+  			yValueFormatString: "$#0.##",
+  			showInLegend: true,
+  			dataPoints: [
+  				{label: '2019', y: [total_downside, total_upside]},
+  				{label: '2020', y: [total_downside, total_upside]},
+  				{label: '2021', y: [total_downside, total_upside]},
+  				{label: '2022 and beyond', y: [total_downside, total_upside]}
+  			]
+  		}
+  		]
+  	});
+  	chart.render();
   };
+  calculateOutcome();
   $('.factor-input').on('change, input', calculateOutcome);
   $(".mc-button").on('click', function(e) {
     // prevent default anchor click behavior
