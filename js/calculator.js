@@ -58,24 +58,29 @@ $( document ).ready(function() {
         fontFamily: 'Open Sans'
   		},
   		exportEnabled: false,
+  		axisX: {
+        labelFontFamily: 'Open Sans'
+  		},
   		axisY: {
   			includeZero:true,
   			prefix: "$",
-        fontFamily: 'Open Sans'
+        labelFontFamily: 'Open Sans'
   		},
   		toolTip: {
   			shared: true,
         fontFamily: 'Open Sans'
   		},
       legend: {
-        fontFamily: 'Open Sans'
+        fontFamily: 'Open Sans',
+        horizontalAlign: 'center', // left, center ,right
+        verticalAlign: 'top'  // top, center, bottom
       },
   		data: [
   		{
   			type: "rangeColumn",
   			name: "MIPS",
   			indexLabelFontSize: 12,
-  			yValueFormatString: "$#0.##",
+  			yValueFormatString: "$#,##0.##",
   			showInLegend: true,
   			dataPoints: [
   				{label: '2019', y: [mips_total_downside_values[0], mips_total_upside_values[0]]},
@@ -88,7 +93,7 @@ $( document ).ready(function() {
   			type: "rangeColumn",
   			name: "Budget-Neutral MIPS",
   			indexLabelFontSize: 12,
-  			yValueFormatString: "$#0.##",
+  			yValueFormatString: "$#,##0.##",
   			showInLegend: true,
   			dataPoints: [
   				{label: '2019', y: [mips_total_downside_values[0], mips_budget_neutral_upside_values[0]]},
@@ -101,7 +106,7 @@ $( document ).ready(function() {
   			type: "rangeColumn",
   			name: "APM",
   			indexLabelFontSize: 12,
-  			yValueFormatString: "$#0.##",
+  			yValueFormatString: "$#,##0.##",
   			showInLegend: true,
   			dataPoints: [
   				{label: '2019', y: [total_downside, total_upside]},
