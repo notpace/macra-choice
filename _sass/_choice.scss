@@ -39,13 +39,13 @@
     color: white;
   }
 }
-.mc-button-default {
+a.mc-button-default {
   background-color: $brand-color;
   &:hover {
     background-color: lighten($brand-color, 15%);
   }
 }
-.mc-button-warning {
+a.mc-button-warning {
   background-color: $strong-color-1;
   &:hover {
     background-color: lighten($strong-color-1, 15%);
@@ -64,10 +64,6 @@
 .factor-title {
   font-size: 1.4em;
   display: block;
-}
-.factor-input {
-  font-size: 1.8em;
-  padding: 1em;
 }
 .factor-dark {
   background-color: $brand-color;
@@ -91,6 +87,11 @@
   color: white;
   padding: 0 5px;
   border-radius: 5px;
+}
+.range-label {
+  font-size: 25px;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 input[type="range"] {
   margin-top: 0;

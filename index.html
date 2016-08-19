@@ -75,9 +75,9 @@ layout: default
     <div class='wrapper'>
       <label class='factor-title' for='part_b_revenue'><span class='factor-number'>1</span> Annual Part B Revenue</label>
       <div class='factor-control col-md-5'>
-        <div class="input-group">
-          <span class="input-group-addon factor-label">$</span>
-          <input type='number' class='form-control factor-input' id='part_b_revenue' value='75000' />
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">$</span>
+          <input type='number' class='form-control input-lg factor-input' id='part_b_revenue' value='75000' />
         </div>
       </div>
       <div class='factor-description col-md-7'>
@@ -96,7 +96,7 @@ layout: default
       <div class='wrapper'>
         <label class='factor-title' for='patients_per_panel'><span class='factor-number'>2</span> Patients Per Panel</label>
         <div class='factor-control col-md-5'>
-          <input type='number' class='form-control factor-input' id='patients_per_panel' value='120' />
+          <input type='number' class='form-control input-lg factor-input' id='patients_per_panel' value='120' />
         </div>
         <div class='factor-description col-md-7'>
           The number of patients whose care a clinician will be "responsible for" within a theoretical APM.
@@ -108,9 +108,9 @@ layout: default
       <div class='wrapper'>
         <label class='factor-title' for='per_beneficiary_spending'><span class='factor-number'>3</span> Per-Beneficiary Spending</label>
         <div class='factor-control col-md-5'>
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <span class="input-group-addon factor-label">$</span>
-            <input type='number' class='form-control factor-input' id='per_beneficiary_spending' value='10000' />
+            <input type='number' class='form-control input-lg factor-input' id='per_beneficiary_spending' value='10000' />
           </div>
         </div>
         <div class='factor-description col-md-7'>
@@ -124,7 +124,7 @@ layout: default
         <label class='factor-title' for='savings_loss_range'><span class='factor-number'>4</span> APM Savings/Loss Range</label>
         <div class='factor-control col-md-5'>
           <div class='col-sm-12 text-center'>
-            <span id='savings_loss_range_value' style='font-size:2em;'>(+/-) 1.0%</span>
+            <span id='savings_loss_range_value' class='range-label'>(+/-) 1.0%</span>
           </div>
           <input class='factor-input large-range' type='range' min='0' max='5' step='0.1' value='1' id='savings_loss_range' />
         </div>
@@ -139,7 +139,7 @@ layout: default
         <label class='factor-title' for='marginal_risk_assumption'><span class='factor-number'>5</span> Marginal Risk Assumption</label>
         <div class='factor-control col-md-5'>
           <div class='col-sm-12 text-center'>
-            <span id='marginal_risk_assumption_value' style='font-size:2em;'>30%</span>
+            <span id='marginal_risk_assumption_value' class='range-label'>30%</span>
           </div>
           <input class='factor-input large-range' type='range' min='30' max='100' step='1' value='30' id='marginal_risk_assumption' />
         </div>
@@ -162,7 +162,7 @@ layout: default
         <label class='factor-title' for='upside_performance_assumption'><span class='factor-number'>6</span> Upside Performance Assumption</label>
         <div class='factor-control col-md-5'>
           <div class='col-sm-12 text-center'>
-            <span id='upside_performance_assumption_value' style='font-size:2em;'>5.0%</span>
+            <span id='upside_performance_assumption_value' class='range-label'>5.0%</span>
           </div>
           <input class='factor-input large-range' type='range' min='0' max='10' step='0.1' value='5' id='upside_performance_assumption' />
         </div>
@@ -177,7 +177,7 @@ layout: default
         <label class='factor-title' for='budget_scale_factor'><span class='factor-number'>7</span> Budget Neutrality Example Scale Factor</label>
         <div class='factor-control col-md-5'>
           <div class='col-sm-12 text-center'>
-            <span id='budget_scale_factor_value' style='font-size:2em;'>0.5</span>
+            <span id='budget_scale_factor_value' class='range-label'>0.5</span>
           </div>
           <input class='factor-input large-range' type='range' min='0.1' max='3' step='0.1' value='0.5' id='budget_scale_factor' />
         </div>
