@@ -95,5 +95,8 @@
 input[type="range"] {
   margin-top: 0;
 }
+.bottom-controls label {
+  margin-top: 1em;
+}
 
 @media screen and (max-width: 600px) { .site-nav .menu-icon {height: 34px;}}

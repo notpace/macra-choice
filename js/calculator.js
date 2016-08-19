@@ -4,17 +4,32 @@ $( document ).ready(function() {
     return parseFloat($('#' + id)[0].value)
   }
   // Interactive range slider value labels
-  $('#savings_loss_range').on('change, input', function(range){
-    $('#savings_loss_range_value')[0].innerHTML = '(+/-) ' + parseFloat(range.target.value).toFixed(1) + '%';
+  $('#savings_loss_range, #savings_loss_range_bottom').on('change, input', function(range){
+    $('#savings_loss_range_value, #savings_loss_range_bottom_value').each(function(i,v) {
+      v.innerHTML = '(+/-) ' + parseFloat(range.target.value).toFixed(1) + '%';
+    });
   });
-  $('#marginal_risk_assumption').on('change, input', function(range){
-    $('#marginal_risk_assumption_value')[0].innerHTML = parseInt(range.target.value) + '%';
+  $('#marginal_risk_assumption, #marginal_risk_assumption_bottom').on('change, input', function(range){
+    $('#marginal_risk_assumption_value, #marginal_risk_assumption_bottom_value').each(function(i,v) {
+      v.innerHTML = parseInt(range.target.value) + '%';
+    });
   });
-  $('#upside_performance_assumption').on('change, input', function(range){
-    $('#upside_performance_assumption_value')[0].innerHTML = parseFloat(range.target.value).toFixed(1) + '%';
+  $('#upside_performance_assumption, #upside_performance_assumption_bottom').on('change, input', function(range){
+    $('#upside_performance_assumption_value, #upside_performance_assumption_bottom_value').each(function(i,v) {
+      v.innerHTML = parseFloat(range.target.value).toFixed(1) + '%';
+    });
   });
-  $('#budget_scale_factor').on('change, input', function(range){
-    $('#budget_scale_factor_value')[0].innerHTML = parseFloat(range.target.value).toFixed(1);
+  $('#budget_scale_factor, #budget_scale_factor_bottom').on('change, input', function(range){
+    $('#budget_scale_factor_value, #budget_scale_factor_bottom_value').each(function(i,v) {
+      v.innerHTML = parseFloat(range.target.value).toFixed(1);
+    });
+  });
+  // Sync top and bottom inputs
+  $('.sync-input').on('change, input', function(input){
+    $('#' + input.target.id.replace('_bottom',''))[0].value = input.target.value;
+  });
+  $('.factor-input').on('change, input', function(input){
+    $('#' + input.target.id + '_bottom')[0].value = input.target.value;
   });
   function calculateOutcome() {
     // Get user-entered factors
@@ -120,7 +135,7 @@ $( document ).ready(function() {
   	chart.render();
   };
   calculateOutcome();
-  $('.factor-input').on('change, input', calculateOutcome);
+  $('.factor-input, .sync-input').on('change, input', calculateOutcome);
   $(".mc-button").on('click', function(e) {
     // prevent default anchor click behavior
     e.preventDefault();

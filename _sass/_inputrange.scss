@@ -48,7 +48,7 @@ $contrast: 5% !default;
   cursor: pointer;
 }
 
-[type=range] {
+.large-range[type=range] {
   -webkit-appearance: none;
   margin: $thumb-height / 2 0;
   width: $track-width;

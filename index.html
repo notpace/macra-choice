@@ -125,7 +125,7 @@ layout: default
           <div class='col-sm-12 text-center'>
             <span id='savings_loss_range_value' style='font-size:2em;'>(+/-) 1.0%</span>
           </div>
-          <input class='factor-input' type='range' min='0' max='5' step='0.1' value='1' id='savings_loss_range' />
+          <input class='factor-input large-range' type='range' min='0' max='5' step='0.1' value='1' id='savings_loss_range' />
         </div>
         <div class='factor-description col-md-7'>
           This is the range of performance assumption for a clinician. For example, typically, ACOs perform (+/-) 1-2% compared to their benchmarks. (+/-) 5% is relatively unlikely. Clinicians currently in APMs can change this percentage according to historical performance to get a better look at possible risks/rewards.
@@ -140,7 +140,7 @@ layout: default
           <div class='col-sm-12 text-center'>
             <span id='marginal_risk_assumption_value' style='font-size:2em;'>30%</span>
           </div>
-          <input class='factor-input' type='range' min='30' max='100' step='1' value='30' id='marginal_risk_assumption' />
+          <input class='factor-input large-range' type='range' min='30' max='100' step='1' value='30' id='marginal_risk_assumption' />
         </div>
         <div class='factor-description col-md-7'>
           The Marginal Risk Assumption is the percentage that an APM will be sharing in savings/losses over or under the benchmark. This number depends on the type of APM a clinician is in.
@@ -163,7 +163,7 @@ layout: default
           <div class='col-sm-12 text-center'>
             <span id='upside_performance_assumption_value' style='font-size:2em;'>5.0%</span>
           </div>
-          <input class='factor-input' type='range' min='0' max='10' step='0.1' value='5' id='upside_performance_assumption' />
+          <input class='factor-input large-range' type='range' min='0' max='10' step='0.1' value='5' id='upside_performance_assumption' />
         </div>
         <div class='factor-description col-md-7'>
           MACRA authorized a 500 million per year exceptional performance payment for clinicians that perform exceptionally well (better than a threshold that is yet to be defined). The maximum adjustment is +10% (very unlikely). Here, an assumption is 5% bonus for clinicians performing exceptionally well.
@@ -174,14 +174,11 @@ layout: default
     <article class='factor col-md-12'>
       <div class='wrapper'>
         <label class='factor-title' for='budget_scale_factor'><span class='factor-number'>7</span> Budget Neutrality Example Scale Factor</label>
-        <!-- <div class='factor-control col-md-5'>
-          <input type='number' class='form-control factor-input' id='budget_scale_factor' value='0.5' step='0.1' />
-        </div> -->
         <div class='factor-control col-md-5'>
           <div class='col-sm-12 text-center'>
             <span id='budget_scale_factor_value' style='font-size:2em;'>0.5</span>
           </div>
-          <input class='factor-input' type='range' min='0.1' max='3' step='0.1' value='0.5' id='budget_scale_factor' />
+          <input class='factor-input large-range' type='range' min='0.1' max='3' step='0.1' value='0.5' id='budget_scale_factor' />
         </div>
         <div class='factor-description col-md-7'>
           MIPS is budget neutral. This means that if more clinicians get positive adjustments, then those positive-adjustment clinicians may have their payments scaled down. This is an example where that scenario plays out, the assumed scale factor is 0.5.
@@ -195,6 +192,43 @@ layout: default
     <div class='wrapper'>
       <p>Based on what you have entered above, you are likely to see the following outcomes with MIPS and APM:</p>
       <div id="chartContainer" style="height: 400px;width: 100%;"></div>
+      <h3>Adjust these factors:</h3>
+      <div class='bottom-controls'>
+        <div class='col-sm-4'>
+          <label for='part_b_revenue_bottom'>Annual Part B Revenue</label><br>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type='number' class='form-control sync-input' id='part_b_revenue_bottom' value='75000' />
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <label for='patients_per_panel_bottom'>Patients Per Panel</label><br>
+          <input type='number' class='form-control sync-input' id='patients_per_panel_bottom' value='120' />
+        </div>
+        <div class='col-sm-4'>
+          <label for='per_beneficiary_spending_bottom'>Per-Beneficiary Spending</label><br>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type='number' class='form-control sync-input' id='per_beneficiary_spending_bottom' value='10000' />
+          </div>
+        </div>
+        <div class='col-sm-6'>
+          <label for='savings_loss_range_bottom'>APM Savings/Loss Range</label>: <span id='savings_loss_range_bottom_value'>(+/-) 1.0%</span>
+          <input type='range' class='form-control sync-input' min='0' max='5' step='0.1' value='1' id='savings_loss_range_bottom' />
+        </div>
+        <div class='col-sm-6'>
+          <label for='marginal_risk_assumption_bottom'>Marginal Risk Assumption</label>: <span id='marginal_risk_assumption_bottom_value'>30%</span>
+          <input type='range' class='form-control sync-input' min='30' max='100' step='1' value='30' id='marginal_risk_assumption_bottom' />
+        </div>
+        <div class='col-sm-6'>
+          <label for='upside_performance_assumption_bottom'>Upside Performance Assumption</label>: <span id='upside_performance_assumption_bottom_value'>5.0%</span>
+          <input type='range' class='form-control sync-input' min='0' max='10' step='0.1' value='5' id='upside_performance_assumption_bottom' />
+        </div>
+        <div class='col-sm-6'>
+          <label for='budget_scale_factor_bottom'>Budget Neutrality Example Scale Factor</label>: <span id='budget_scale_factor_bottom_value'>0.5</span>
+          <input type='range' class='form-control sync-input' min='0.1' max='3' step='0.1' value='0.5' id='budget_scale_factor_bottom' />
+        </div>
+      </div>
     </div>
   </article>
 
