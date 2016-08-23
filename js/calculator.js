@@ -56,15 +56,10 @@ $( document ).ready(function() {
       mips_adjustments_upside_values.push( part_b_revenue * performance_range_values[i] );
       mips_adjustments_downside_values.push( part_b_revenue * performance_range_values[i] * -1 );
     };
-    var mips_total_upside_values = [];
-    for (i in mips_adjustments_upside_values) {
-      mips_total_upside_values.push( mips_adjustments_upside_values[i] + mips_performance_upside );
-    }
     var mips_budget_neutral_upside_values = [];
-    for (i in mips_total_upside_values) {
-      mips_budget_neutral_upside_values.push( mips_total_upside_values[i] * budget_scale_factor );
+    for (i in mips_adjustments_upside_values) {
+      mips_budget_neutral_upside_values.push( (mips_adjustments_upside_values[i] + mips_performance_upside) * budget_scale_factor );
     }
-    var mips_total_downside_values = mips_adjustments_downside_values;
     // Render the chart for MIPS and APM values over time
   	var chart = new CanvasJS.Chart("chartContainer",
   	{
@@ -98,23 +93,10 @@ $( document ).ready(function() {
   			yValueFormatString: "$#,##0.##",
   			showInLegend: true,
   			dataPoints: [
-  				{label: '2019', y: [mips_total_downside_values[0], mips_total_upside_values[0]]},
-  				{label: '2020', y: [mips_total_downside_values[1], mips_total_upside_values[1]]},
-  				{label: '2021', y: [mips_total_downside_values[2], mips_total_upside_values[2]]},
-  				{label: '2022 and beyond', y: [mips_total_downside_values[3], mips_total_upside_values[3]]}
-  			]
-  		},
-  		{
-  			type: "rangeColumn",
-  			name: "Budget-Neutral MIPS",
-  			indexLabelFontSize: 12,
-  			yValueFormatString: "$#,##0.##",
-  			showInLegend: true,
-  			dataPoints: [
-  				{label: '2019', y: [mips_total_downside_values[0], mips_budget_neutral_upside_values[0]]},
-  				{label: '2020', y: [mips_total_downside_values[1], mips_budget_neutral_upside_values[1]]},
-  				{label: '2021', y: [mips_total_downside_values[2], mips_budget_neutral_upside_values[2]]},
-  				{label: '2022 and beyond', y: [mips_total_downside_values[3], mips_budget_neutral_upside_values[3]]}
+  				{label: '2019', y: [mips_adjustments_downside_values[0], mips_budget_neutral_upside_values[0]]},
+  				{label: '2020', y: [mips_adjustments_downside_values[1], mips_budget_neutral_upside_values[1]]},
+  				{label: '2021', y: [mips_adjustments_downside_values[2], mips_budget_neutral_upside_values[2]]},
+  				{label: '2022 and beyond', y: [mips_adjustments_downside_values[3], mips_budget_neutral_upside_values[3]]}
   			]
   		},
   		{
