@@ -210,12 +210,22 @@ layout: default
             <li><i class='fa fa-fw fa-medkit' aria-hidden='true'></i> Resource use (10%)</li>
           </ul>
           <p>After CPS values are calculated for all Medicare Part B clinicians, the distribution of those scores is taken into account.  If more clinicians are receiving penalties than are receiving incentives, the higher-performing clinicians will receive larger incentives.</p>
-          <p>When the distribution of CPS scores is relatively uniform, there will be no scaling of payment adjustments (Budget Neutrality Scale Factor = 1.0)</p>
-          <p><img src={{'/images/budget_neutrality_even.png' | prepend: site.baseurl }} alt='Budget Neutrality Scale Factor = 1.0' /></p>
-          <p>When the distribution of CPS scores is more negative, the relatively fewer positive-adjustment clinicians (the 4 green dots on the right) will have their payments scaled up (Budget Neutrality Scale Factor = 3.0)</p>
-          <p><img src={{'/images/budget_neutrality_low.png' | prepend: site.baseurl }} alt='Budget Neutrality Scale Factor = 1.0' /></p>
-          <p>When the distribution of CPS scores is more positive, the positive adjustment clinicians (all of the green dots) will have their payments scaled downward (Budget Neutrality Scale Factor = 0.5)</p>
-          <p><img src={{'/images/budget_neutrality_high.png' | prepend: site.baseurl }} alt='Budget Neutrality Scale Factor = 1.0' /></p>
+          <div class='col-md-6'>
+            <h4>Budget Neutrality Scale Factor = 1.0</h4>
+            <p><img src={{'/images/budget_neutrality_even.png' | prepend: site.baseurl }} alt='Budget Neutrality Scale Factor = 1.0' /></p>
+            <p>When the distribution of CPS scores is relatively uniform, there will be no scaling of payment adjustments:</p>
+          </div>
+          <div class='col-md-6'>
+            <h4>Budget Neutrality Scale Factor = 3.0</h4>
+            <p><img src={{'/images/budget_neutrality_low.png' | prepend: site.baseurl }} alt='Budget Neutrality Scale Factor = 1.0' /></p>
+            <p>When the distribution of CPS scores is more negative, the relatively fewer positive-adjustment clinicians (the 4 green dots on the right) will have their payments scaled up:</p>
+          </div>
+          <div class='col-md-6'>
+            <h4>Budget Neutrality Scale Factor = 0.5</h4>
+            <p><img src={{'/images/budget_neutrality_high.png' | prepend: site.baseurl }} alt='Budget Neutrality Scale Factor = 1.0' /></p>
+            <p>When the distribution of CPS scores is more positive, the positive adjustment clinicians (all of the green dots) will have their payments scaled downward:</p>
+          </div>
+          <div class='clearfix'></div>
           <p>Since this value is not easy to predict (because we do not know ahead of time what the distribution of CPS scores will be), you may want to try various values of the budget neutrality scale factor to see how they would affect your reimbursement payments.</p>
           <a role="button" data-toggle="collapse" href="#budget_scale_factor_explainer" aria-expanded="false" aria-controls="budget_scale_factor_explainer">Got it - thanks!</a>
         </div>
